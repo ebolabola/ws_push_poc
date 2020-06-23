@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+option csharp_namespace = "proto.PushService";
+
+message WSClientData
+{
+	string UserId = 1;
+	string Signature = 2;
+	int32 Generation = 3;
+}
+message ClientPing
+{
+	int32 Dummy = 1;
+}
+
+message PUSH_TOKEN
+{
+	int32 instanceKey = 1;
+	int32 clientKey = 2;
+}
+
+
+enum PushMessageType
+{
+	PresenceService = 0;
+}
+
+
+message MessageHeader
+{
+	PUSH_TOKEN token = 1;
+	PushMessageType MessageType = 2;
+}

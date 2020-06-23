@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cppClient.cpp" />
+    <ClCompile Include="ws_client_boost.cpp" />
+    <ClCompile Include="ws_service.cpp" />
+    <ClCompile Include="ws_handler.cpp" />
+    <ClCompile Include="ws_push_client.cpp" />
+    <ClCompile Include="Proto\Push\push.pb.cc">
+      <Filter>Proto\Push</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\Presence\PresenceService.grpc.pb.cc">
+      <Filter>Proto\Presence</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\Presence\PresenceService.pb.cc">
+      <Filter>Proto\Presence</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\Push\PushPresenceService.pb.cc">
+      <Filter>Proto\Push</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ws_client_boost.h" />
+    <ClInclude Include="ws_service.h" />
+    <ClInclude Include="ws_handler.h" />
+    <ClInclude Include="ws_push_client.h" />
+    <ClInclude Include="Proto\Push\push.pb.h">
+      <Filter>Proto\Push</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\Presence\PresenceService.grpc.pb.h">
+      <Filter>Proto\Presence</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\Presence\PresenceService.pb.h">
+      <Filter>Proto\Presence</Filter>
+    </ClInclude>
+    <ClInclude Include="cppClient.h" />
+    <ClInclude Include="Proto\Push\PushPresenceService.pb.h">
+      <Filter>Proto\Push</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Proto">
+      <UniqueIdentifier>{58ea37a4-7c12-49f1-8967-9afa38aec53b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Proto\Push">
+      <UniqueIdentifier>{58f04fe6-0cc8-4bff-91fd-c69a8cab3f24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Proto\Presence">
+      <UniqueIdentifier>{5f2ca47c-1684-436b-803d-b89e3aa269a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

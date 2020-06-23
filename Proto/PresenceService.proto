@@ -1,0 +1,29 @@
+﻿syntax = "proto3";
+import "push.proto";
+
+option csharp_namespace = "interfaces";
+
+package interfaces;
+
+// The greeting service definition.
+service IPresenceService {
+  // Sends a greeting
+    rpc PresenceConnect (PresenceConnectRequest) returns (PresenceState);
+    rpc PresenceGetStateAndSub (PresenceGetStateAndSubRequest) returns (PresenceState);
+}
+
+// The request message containing the user's name.
+message PresenceConnectRequest {
+    string UserId =1;
+}
+
+message PresenceState {
+    int32 Version = 1;
+    int32 Dummy = 2;
+}
+
+message PresenceGetStateAndSubRequest {
+    string UserId =1;
+    PUSH_TOKEN Token = 2;
+}
+

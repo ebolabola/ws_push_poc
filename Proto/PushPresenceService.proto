@@ -1,0 +1,11 @@
+﻿syntax = "proto3";
+option csharp_namespace = "PushPresenceService";
+package PushPresenceService;
+
+message PrescencePushData
+{
+	int32 version =1;
+	int32 dummy =2;
+	string kuku = 3; 
+}
+
