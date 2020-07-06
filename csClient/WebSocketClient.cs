@@ -12,14 +12,7 @@ using System.Threading.Tasks;
 
 namespace csClient
 {
-    interface IPushEvents
-    {
-        void Handle(PrescencePushData msg);
-        void Handle(UserPushData msg);
-    }
-
-    public class WebSocketClient:
-        IPushEvents
+    public class WebSocketClient
     {
         private Uri _uri;
         private ClientWebSocket _ws;
@@ -28,6 +21,15 @@ namespace csClient
 
         private CancellationTokenSource _recieveToken;
         private Task _wsTaskRecieve;
+
+        #region events
+        public delegate void PresencePushDataReceived(PrescencePushData msg);
+        public PresencePushDataReceived OnPrescencePushDataReceived;
+
+        public delegate void UserPushDataReceived(UserPushData msg);
+        public UserPushDataReceived OnUserPushDataReceived;
+        #endregion
+
         public WebSocketClient(Uri uri)
         {
             _uri = uri;
@@ -61,7 +63,7 @@ namespace csClient
             }
         }
 
- 
+
         private async Task Recieve()
         {
             var buffer = new byte[255];
@@ -83,11 +85,11 @@ namespace csClient
                             {
                                 case PushMessageType.PresenceService:
                                     var pr = PrescencePushData.Parser.ParseFrom(data, sizeof(int) + hdrsize, data.Length - (sizeof(int) + hdrsize));
-                                    Handle(pr);
+                                    OnPrescencePushDataReceived?.Invoke(pr);
                                     break;
                                 case PushMessageType.UserService:
                                     var up = UserPushData.Parser.ParseFrom(data, sizeof(int) + hdrsize, data.Length - (sizeof(int) + hdrsize));
-                                    Handle(up);
+                                    OnUserPushDataReceived?.Invoke(up);
                                     break;
                             }
                         }
@@ -141,19 +143,6 @@ namespace csClient
                     break;
             }
             return null;
-        }
-
-
-        public void Handle(PrescencePushData msg)
-        {
-            Console.WriteLine($"{msg.Version}-{msg.Kuku}-{msg.Dummy}");
-        }
-
-
-
-        public void Handle(UserPushData msg)
-        {
-            Console.WriteLine(msg.Huyamba);
         }
 
         public PUSH_TOKEN Token
