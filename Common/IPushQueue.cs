@@ -20,7 +20,7 @@ namespace Common
         private string _connectionString;
         private PushMessageType _pushMessageType;
         private RabbitQueue _queue;
-        ConcurrentDictionary<Int32, RabbitQueue> _quues = new ConcurrentDictionary<Int32, RabbitQueue>();
+        ConcurrentDictionary<Int32, RabbitQueue> _queues = new ConcurrentDictionary<Int32, RabbitQueue>();
 
         public PushQueue(string connectionString, PushMessageType pushMessageType)
         {
@@ -30,7 +30,7 @@ namespace Common
 
         public void Enqueue(PUSH_TOKEN token, T t)
         {
-            var q = _quues.GetOrAdd(token.InstanceKey, (key) =>
+            var q = _queues.GetOrAdd(token.InstanceKey, (key) =>
             {
                 var queue = RabbitQueue.CreateSender(_connectionString, "pushqueue", $"{token.InstanceKey}");
                 queue.Start();

@@ -8,6 +8,7 @@
     <None Remove="PresenceService.proto" />
     <None Remove="push.proto" />
     <None Remove="PushPresenceService.proto" />
+    <None Remove="PushSync.proto" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,9 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="PresenceService.proto" GrpcServices="Server" />
+    <Protobuf Include="PresenceService.proto" GrpcServices="Both" />
     <Protobuf Include="push.proto" GrpcServices="Server" />
     <Protobuf Include="PushPresenceService.proto" />
+    <Protobuf Include="PushSync.proto" />
   </ItemGroup>
 
 </Project>

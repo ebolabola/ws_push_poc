@@ -97,7 +97,6 @@ namespace Backend.Common.EntitySync.RMQ
                 _send.Wait();
                 _send = null;
                 _sendTocken = null;
-
             }
         }
     }

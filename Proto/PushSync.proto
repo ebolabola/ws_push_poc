@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+option csharp_namespace = "proto.PushService";
+import "push.proto";
+
+
+
+message InstanceHeartBeat
+{
+	string InsatnceId = 1;
+}
+
+
+message ClientConnected
+{
+	WSClientData ClientData =1;
+}
+
+
+message PushIntanceSyncMessage
+{
+	InstanceHeartBeat InstanceHeartbeat =1;
+	ClientConnected ClientConnected = 2;
+}
+

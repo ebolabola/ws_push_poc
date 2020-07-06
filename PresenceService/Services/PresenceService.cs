@@ -54,7 +54,14 @@ namespace PresenceService
         }
         public void AddUser(string userId, UserState st)
         {
-            users.Add(userId, st);
+            if (users.ContainsKey(userId))
+            {
+                users[userId] = st;
+            }
+            else
+            {
+                users.Add(userId, st);
+            }
         }
         public void RemoveUser(string userId, PUSH_TOKEN tk)
         {

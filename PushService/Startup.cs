@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
+using Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,12 +15,14 @@ namespace PushService
 {
     public class Startup
     {
-        QueueRiceReciever _queueRiceReciever;
+        PushQueueReciever _queueRiceReciever;
         public void ConfigureServices(IServiceCollection services)
         {
-            var instanceId = Guid.NewGuid().GetHashCode();
-            var connectionManager = new ConnectionManager(instanceId);
-            _queueRiceReciever = new QueueRiceReciever("amqp://guest:guest@127.0.0.1:5672", instanceId, connectionManager, PushMessageType.PresenceService);
+            var instanceId = Guid.NewGuid();
+            var connectionString = "amqp://guest:guest@127.0.0.1:5672";
+            var logger = new Logger();
+            var connectionManager = new ConnectionManager(instanceId, connectionString, logger);
+            connectionManager.Start();
             services.AddSingleton<IConnectionManager>(connectionManager);
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
