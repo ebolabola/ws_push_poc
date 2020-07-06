@@ -15,6 +15,7 @@ namespace csClient
     interface IPushEvents
     {
         void Handle(PrescencePushData msg);
+        void Handle(UserPushData msg);
     }
 
     public class WebSocketClient:
@@ -84,6 +85,10 @@ namespace csClient
                                     var pr = PrescencePushData.Parser.ParseFrom(data, sizeof(int) + hdrsize, data.Length - (sizeof(int) + hdrsize));
                                     Handle(pr);
                                     break;
+                                case PushMessageType.UserService:
+                                    var up = UserPushData.Parser.ParseFrom(data, sizeof(int) + hdrsize, data.Length - (sizeof(int) + hdrsize));
+                                    Handle(up);
+                                    break;
                             }
                         }
                     }
@@ -142,6 +147,13 @@ namespace csClient
         public void Handle(PrescencePushData msg)
         {
             Console.WriteLine($"{msg.Version}-{msg.Kuku}-{msg.Dummy}");
+        }
+
+
+
+        public void Handle(UserPushData msg)
+        {
+            Console.WriteLine(msg.Huyamba);
         }
 
         public PUSH_TOKEN Token

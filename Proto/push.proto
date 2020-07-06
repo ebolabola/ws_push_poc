@@ -22,6 +22,7 @@ message PUSH_TOKEN
 enum PushMessageType
 {
 	PresenceService = 0;
+	UserService = 1;
 }
 
 

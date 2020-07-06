@@ -2,11 +2,9 @@
 option csharp_namespace = "PushPresenceService";
 package PushPresenceService;
 
-message PrescencePushData
+message UserPushData
 {
-	int32 version =1;
-	int32 dummy =2;
-	string kuku = 3; 
+	string huyamba = 1; 
 }
 
 
