@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Proto\Proto.csproj" />
+    <ProjectReference Include="..\WebSocketClient\WebSocketClient.csproj" />
   </ItemGroup>
 
 </Project>

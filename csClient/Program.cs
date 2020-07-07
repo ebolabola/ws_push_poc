@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Net.WebSockets;
 using System.Threading;
+using WebSocketClient;
 
 namespace csClient
 {
@@ -18,7 +19,7 @@ namespace csClient
                 var userId = "u1";
                 var Generation = 1;
                 var Signature = "sig1";
-                var cl = new WebSocketClient(new Uri("ws://localhost:56566/ws"));
+                var cl = new WSClient(new Uri("ws://localhost:56566/ws"));
                 cl.Start(new WSClientData()
                 {
                     Generation = Generation,

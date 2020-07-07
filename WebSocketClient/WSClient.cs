@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace csClient
+namespace WebSocketClient
 {
-    public class WebSocketClient
+    public class WSClient
     {
         private Uri _uri;
         private ClientWebSocket _ws;
@@ -30,7 +30,7 @@ namespace csClient
         public UserPushDataReceived OnUserPushDataReceived;
         #endregion
 
-        public WebSocketClient(Uri uri)
+        public WSClient(Uri uri)
         {
             _uri = uri;
         }
@@ -126,15 +126,14 @@ namespace csClient
         private async Task<byte[]> ReceiveMessage(CancellationToken token)
         {
             var buffer = new byte[255];
-            var seg = new ArraySegment<byte>(buffer);
             var msgbuffer = new List<byte>();
+            var segment = new ArraySegment<byte>(buffer);
 
             while (true)
             {
-
-                WebSocketReceiveResult result = await _ws.ReceiveAsync(buffer, token);
+                WebSocketReceiveResult result = await _ws.ReceiveAsync(segment, token);
                 if (result.Count > 0)
-                    msgbuffer.AddRange(seg.Slice(0, result.Count));
+                    msgbuffer.AddRange(segment.Take(result.Count));
                 if (result.EndOfMessage)
                 {
                     return msgbuffer.ToArray();

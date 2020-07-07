@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proto", "..\Proto\Proto.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "csClient", "..\csClient\csClient.csproj", "{12A6461A-78A1-4517-BE7F-32AA4D5A8542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresenceService", "..\PresenceService\PresenceService.csproj", "{C33C7E89-89A6-4C34-892C-F82B1E93E83D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresenceService", "..\PresenceService\PresenceService.csproj", "{C33C7E89-89A6-4C34-892C-F82B1E93E83D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{A9934D5B-A049-4756-AACD-6AFD81435B52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\Common\Common.csproj", "{A9934D5B-A049-4756-AACD-6AFD81435B52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketClient", "..\WebSocketClient\WebSocketClient.csproj", "{B4651CE3-DEC8-4F1F-84DB-67762A0D67D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A9934D5B-A049-4756-AACD-6AFD81435B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9934D5B-A049-4756-AACD-6AFD81435B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9934D5B-A049-4756-AACD-6AFD81435B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4651CE3-DEC8-4F1F-84DB-67762A0D67D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4651CE3-DEC8-4F1F-84DB-67762A0D67D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4651CE3-DEC8-4F1F-84DB-67762A0D67D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4651CE3-DEC8-4F1F-84DB-67762A0D67D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
